@@ -56,7 +56,7 @@ class _AddProductPageState extends State<AddProductPage> {
     }
 
     final url = Uri.parse(
-      "http://localhost/flutter_product_image/php_api/insert_product.php",
+      "http://192.168.1.108/flutter_product_image/php_api/insert_product.php",
     );
 
     var request = http.MultipartRequest('POST', url);

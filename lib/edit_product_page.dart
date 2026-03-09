@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'dart:io';
 
 const String baseUrl =
-    "http://127.0.0.1/flutter_product_image/php_api/";
+    "http://192.168.1.108/flutter_product_image/php_api/";
 
 class EditProductPage extends StatefulWidget {
   final dynamic product;
