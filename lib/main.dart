@@ -4,7 +4,6 @@ import 'package:http/http.dart' as http;
 
 import 'add_product_page.dart';
 import 'edit_product_page.dart';
-import 'Login.dart';
 
 void main() => runApp(const MyApp());
 
@@ -13,7 +12,7 @@ void main() => runApp(const MyApp());
 //////////////////////////////////////////////////////////////
 
 const String baseUrl =
-    "http://192.168.1.108/flutter_product_image/php_api/";
+    "http://127.0.0.1/flutter_product_image_crud/php_api/";
 
 //////////////////////////////////////////////////////////////
 // ✅ APP ROOT
@@ -25,8 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      //home: ProductList(),  // ✅ เปลี่ยนเป็นหน้า Login
-      home: LoginPage(),
+      home: ProductList(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -159,30 +157,7 @@ class _ProductListState extends State<ProductList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Product List'),
-      
-   actions: [
-    IconButton(
-      icon: const Icon(Icons.logout),
-      onPressed: () {
-
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const LoginPage(),
-          ),
-          (route) => false,
-        );
-
-      },
-    ),
-  ],
-      
-      ),
-
-
-
-
+      appBar: AppBar(title: const Text('Product List')),
 
       body: Column(
         children: [
@@ -358,7 +333,7 @@ class ProductDetail extends StatelessWidget {
             //////////////////////////////////////////////////////
 
             Text(
-               product['name'] ?? '' ,
+              product['name'] ?? '',
               style: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
