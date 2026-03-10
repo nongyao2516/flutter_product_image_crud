@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2026 at 06:03 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.1.25
+-- Generation Time: Mar 10, 2026 at 10:26 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `shop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees`
+--
+
+CREATE TABLE `employees` (
+  `employee_id` int(11) NOT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`employee_id`, `first_name`, `last_name`, `phone`, `username`, `password`) VALUES
+(1, 'Somchai', 'Jaidee', '0812345678', 'admin', '1234'),
+(2, 'Mesa', 'Wongsa', '0898765432', 'mesa', '1234');
 
 -- --------------------------------------------------------
 
@@ -40,16 +63,16 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `price`, `description`, `image`) VALUES
-(1, 'Notebook ASUS', 25000.00, 'โน้ตบุ๊กสำหรับทำงานและเรียนออนไลน์', '1773031607_1760502827_p7.jpg'),
-(2, 'iPhone 15', 35900.00, 'สมาร์ทโฟนประสิทธิภาพสูง กล้องคมชัด', '1771829324_m5.jfif'),
-(4, 'Mechanical Keyboard', 2490.00, 'คีย์บอร์ด Mechanical สำหรับเกมและพิมพ์งาน', '1771829336_m2.jpg'),
-(5, 'Monitor 27 นิ้ว', 8900.00, 'จอภาพ Full HD ขนาด 27 นิ้ว', '1771837643_1761180238_3.jfif'),
-(12, 'กระเป๋า', 350.00, 'กหดกหดกห', '1771298436_img1.webp'),
-(13, 'Logo IT', 5000.00, 'ออกแบบโลโก้', '1771298904_logo.jpg'),
-(14, 'สมุดรายงานหลากสี', 49.00, 'สมุดรายงานปกแข็งหลากสี', '1771832810_p4.webp'),
-(15, 'ชุดชาบูเนื้อหมูสด', 250.00, 'ชุดชาบูเนื้อหมูสด รวมผัดสด น้ำดำ', '1771833175_1760498996_p6.jpg'),
-(19, 'ชุดหมูสามชั้น', 140.00, 'ชุดชาบูหมูสามชั้น', '1772426210_2.jfif'),
-(20, 'น้ำดื่มตาสิง', 10.00, 'น้ำดื่มสะอาด', '1773031640_m01.jpg');
+(1, 'Notebook ASUS', '25000.00', 'โน้ตบุ๊กสำหรับทำงานและเรียนออนไลน์', '1773031607_1760502827_p7.jpg'),
+(2, 'iPhone 15', '35900.00', 'สมาร์ทโฟนประสิทธิภาพสูง กล้องคมชัด', '1771829324_m5.jfif'),
+(4, 'Mechanical Keyboard', '2490.00', 'คีย์บอร์ด Mechanical สำหรับเกมและพิมพ์งาน', '1771829336_m2.jpg'),
+(5, 'Monitor 27 นิ้ว', '8900.00', 'จอภาพ Full HD ขนาด 27 นิ้ว', '1771837643_1761180238_3.jfif'),
+(12, 'กระเป๋า', '350.00', 'กหดกหดกห', '1771298436_img1.webp'),
+(13, 'Logo IT', '5000.00', 'ออกแบบโลโก้', '1771298904_logo.jpg'),
+(14, 'สมุดรายงานหลากสี', '49.00', 'สมุดรายงานปกแข็งหลากสี', '1771832810_p4.webp'),
+(15, 'ชุดชาบูเนื้อหมูสด', '250.00', 'ชุดชาบูเนื้อหมูสด รวมผัดสด น้ำดำ', '1771833175_1760498996_p6.jpg'),
+(19, 'ชุดหมูสามชั้น', '140.00', 'ชุดชาบูหมูสามชั้น', '1772426210_2.jfif'),
+(20, 'น้ำดื่มตาสิง', '10.00', 'น้ำดื่มสะอาด', '1773031640_m01.jpg');
 
 -- --------------------------------------------------------
 
@@ -84,6 +107,7 @@ INSERT INTO `travel` (`id`, `name`, `description`, `image`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -92,13 +116,19 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'admin', '1234'),
-(2, 'user', '1234');
+INSERT INTO `users` (`id`, `name`, `username`, `password`) VALUES
+(1, 'มะลิรัตน์ เกิดทอง', 'admin', '1234'),
+(2, 'นงเยาว์ สอนจะโปะ', 'user', '1234');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`employee_id`);
 
 --
 -- Indexes for table `products`
